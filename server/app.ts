@@ -8,6 +8,7 @@ import tickets from "./routes/tickets"
 import users from "./routes/users"
 import companies from "./routes/companies"
 import charts from "./routes/charts"
+import demo from "./routes/demo"
 
 const app: Express = express()
 
@@ -19,8 +20,9 @@ app.use("/api/tickets", tickets)
 app.use("/api/users", users)
 app.use("/api/companies", companies)
 app.use("/api/charts", charts)
+app.use("/api/demo", demo)
 
-const swaggerDocument = YAML.load("./swagger.yml")
+const swaggerDocument = YAML.load("./swagger.yml") 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 export default app
